@@ -1,0 +1,222 @@
+// colors
+$background-dark:rgb(20, 20, 20);
+$background-light:rgb(240, 240, 240);
+
+$color-primary: rgb(25, 175, 150);
+$color-danger:rgb(255, 0, 0);
+$color-info:rgb(10, 100, 200);
+$color-warning: rgb(250, 150, 0);
+$color-online:rgb(0,255,0);
+$color-invalid:rgb(127, 127, 127);
+$color-header:rgb(0, 100, 255);
+$color-footer:rgb(25, 20, 20);
+$color-white:rgb(255,255,255);
+$color-pinky:rgb(255, 0, 150);
+$color-yellow:rgb(255,255,0);
+$color-black:rgb(0,0,0);
+$color-hover: rgb(90, 190, 220);
+
+$card-light:rgb(225, 175, 125);
+$card-dark:rgb(25, 20, 20);
+
+// Breakpoints
+$breakpoint-sm: 375px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  background: url("../img/bg.png") left top repeat;
+  background-position: center;
+  background-color: $background-light;
+  color: $color-black;
+}
+
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+
+  .wrapper{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    @media(min-width: $breakpoint-md){padding: 20px;};
+    @media(min-width: $breakpoint-lg){padding: 40px;};
+
+    .content{
+      margin-left: auto;
+      margin-right: auto;
+      min-width: 360px;
+      max-width: 500px;
+      width: 90%;
+      padding: 1rem;
+      
+      @media (min-width: $breakpoint-md) {
+        margin-top: 20vh;
+      }
+
+      .content-title{
+        padding: 5px 20px;
+
+        .content-title-text{
+          font-family: Georgia, "Times New Roman", Times, serif;
+          font-style: italic;
+          font-size: 1.8rem;
+          text-align: center;
+          font-weight: 600;
+          color: $color-header;
+    
+          @media (min-width: $breakpoint-lg) {
+            font-size: 2.2rem;
+          }
+        }
+      }
+      
+      .content-body{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 1rem 0;
+
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(15.8px);
+        --webkit-backdrop-filter: blur(15.8px);
+
+        @media (min-width: $breakpoint-lg) {
+          gap: 0.3rem;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .body-item-group{
+          width: 100%;
+        
+          .item-label-group{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 0px 20px;
+
+            .item-label{
+              padding: 0.5rem;
+              font-size: 1.5rem;
+              color: $color-primary;
+              cursor: default;
+            }
+          }
+
+          .item-button-group{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding: 0px 20px;
+              
+            @media (min-width: $breakpoint-lg) {
+              gap: 0.5rem;
+            }
+
+            .item-button{
+              width: 100%;
+              padding: 0.8rem;
+              outline: none;
+              border: none;
+              background: $color-pinky;
+              color: $color-white;
+              font-weight: 500;
+              border-radius: 0.3rem;
+              transition: 300ms;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+                      
+              .loader_spinner {
+                width: 25px;
+                height: 25px;
+                background-color: $background-light;
+                animation-name: spin;
+                animation-duration: 5000ms;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+              }
+
+              @media (min-width: $breakpoint-lg) {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+              }
+      
+              &:hover {
+                background-color: $color-hover;
+              }
+      
+              &:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+
+
+.fadeInDown {
+    animation: fadeInDown 1s;
+}
+.hidden{
+  opacity:0.5;
+  animation: fadeInShow 3s;
+}
+
+// animations
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-7rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInShow {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
